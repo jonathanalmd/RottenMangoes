@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+A Rotten Tomatoes clone using Ruby on Rails!
 
 * Ruby version
+	2.3.3
 
-* System dependencies
-
-* Configuration
+* Run bundle
+	bundle install
 
 * Database creation
+	rake db:migrate 
 
-* Database initialization
+* Start server
+	bin/rails server -b 0.0.0.0
 
-* How to run the test suite
+* Access the awesome Rotten Mangoes website!
+	localhost:3000/movies	
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
