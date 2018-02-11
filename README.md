@@ -12,12 +12,12 @@ A Rotten Tomatoes clone using Ruby on Rails!
 * rake db:migrate 
 
 ## Insert data from seed (using ActiveRecord) 
-* edit 'db/seeds.rb' file
+1) edit 'db/seeds.rb' file
+2) Run:
 * bin/rails db:seed
-
 ## Check Database
-* bin/rails console
-* Enter: Movie.all
+  bin/rails console
+  Enter: Movie.all
 
 ## Start server
 * bin/rails server -b 0.0.0.0
@@ -26,12 +26,15 @@ A Rotten Tomatoes clone using Ruby on Rails!
 * localhost:3000/movies	
 
 ## Problems with bcrypt? Try this:
-* Stop the server
+1) Stop the server
 * gem install bcrypt --platform-ruby
-* Check your bcrypt version:
+2) Check your bcrypt version:
 * gem list bcrypt
-* Check bcrypt version in Gemfile (if different, update with the correct bcrypt version)
+3) Check bcrypt version in Gemfile (if different, update with the correct bcrypt version)
 * bundle install
-* Check bcrypt in Gemfile.lock 
-* Start the server
-* Have fun!
+4) Check bcrypt in Gemfile.lock 
+5) Start the server
+* bin/rails server -b 0.0.0.0
+6) Access the awesome Rotten Mangoes website
+* localhost:3000/movies	
+7) Have fun!
