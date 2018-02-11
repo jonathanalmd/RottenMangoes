@@ -1,5 +1,8 @@
 
 class Movie < ApplicationRecord
+  # access all reviews for a give movie
+  has_many :reviews
+
   validates :title,
     presence: true
 
