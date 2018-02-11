@@ -12,9 +12,10 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # SUCCESS: set :user_id key in sessions hash to the users id
       session[:user_id] = user.id
-      redirect_to movies_path
+      redirect_to movies_path, notice: "Welcome back, #{user.firstname}!"
     else
       # FAILURE
+      flash.now[:alert] = "Log in failed"
       render :new
     end
 
