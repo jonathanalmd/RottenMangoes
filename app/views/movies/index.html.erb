@@ -8,14 +8,19 @@
  -->
 <hr>
 
+
 <% @movies.each do |movie| %>
 	<%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
 	<h2>
 	<%= link_to movie.title, movie_path(movie) %>
 	</h2>
 
+	<!-- Average from movie.rb model -->
+	<%= movie.review_average %>/10
+
+	<!-- Formated date from helper movies_helper.rb -->
 	<h3>
-	<%= movie.release_date %>
+	<%= formatted_date(movie.release_date) %>
 	</h3>
 
 	<h4>

@@ -7,8 +7,12 @@
 	<%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)
 </h2>
 
+<!-- Average from movie.rb model -->
+<%= @movie.review_average %>/10
+
+<!-- Formated date from helper movies_helper.rb -->
 <h3>
-	<%= @movie.release_date %>
+	<%= formatted_date(@movie.release_date) %>
 </h3>
 
 <h4>
@@ -28,7 +32,7 @@
   <% @movie.reviews.each do |review| %>
     <p><%= review.text %></p>
     <p><%= review.rating_out_of_ten %>/10</p>
-    <small>- <%= review.user.email %></small><br/>
+    <small>- <%= review.user.full_name %></small><br/>
   
   <% end %>
   

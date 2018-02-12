@@ -1,5 +1,6 @@
 
-class Movie < ApplicationRecord
+class Movie < ActiveRecord::Base
+# class Movie < ApplicationRecord
   # access all reviews for a give movie
   has_many :reviews
 
@@ -22,6 +23,11 @@ class Movie < ApplicationRecord
     presence: true
 
   validate :release_date_is_in_the_past
+
+  # Can call this method from anywhere
+  def review_average
+    reviews.sum(:rating_out_of_ten)/reviews.size
+  end
 
   protected
 

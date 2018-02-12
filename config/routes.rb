@@ -1,16 +1,13 @@
 
 RottenMangoes::Application.routes.draw do
-  
-  get 'reviews/new'
-
-  get 'reviews/create'
-
-  # Nested resources
+  # Nested resources: a review belongs to movie
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+
+  root to: 'movies#index'
 
 end
 
