@@ -4,6 +4,9 @@ class Movie < ActiveRecord::Base
   # access all reviews for a give movie
   has_many :reviews
 
+  has_many :contracts
+  has_many :actors, through: :contracts
+
   validates :title,
     presence: true
 
@@ -26,7 +29,7 @@ class Movie < ActiveRecord::Base
 
   # Can call this method from anywhere
   def review_average
-    reviews.sum(:rating_out_of_ten)/reviews.size
+    reviews.sum(:rating_out_of_ten)/(reviews.size == 0 ? 1 : reviews.size)
   end
 
   protected
