@@ -5,6 +5,10 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  def review_average
+    self.reviews.sum(:rating_out_of_ten)/(self.reviews.size == 0 ? 1 : self.reviews.size)
+  end
+
   def full_name
     "#{firstname} #{lastname}"
 
