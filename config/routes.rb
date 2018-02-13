@@ -1,5 +1,7 @@
 
 RottenMangoes::Application.routes.draw do
+  # get 'users/show'
+
   # get 'actors/show'
 
   # get 'actors/new'
@@ -12,7 +14,7 @@ RottenMangoes::Application.routes.draw do
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :actors
 

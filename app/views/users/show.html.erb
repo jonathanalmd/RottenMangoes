@@ -1,0 +1,26 @@
+
+<%= link_to "Back to all movies", movies_path %><br/>
+
+<h2>
+  <%= @user.firstname %>  
+  <%= @user.lastname %>
+  (<%= @user.email %>)
+</h2>
+
+
+<h3>Reviews of <em><%= @user.full_name %></em></h3>
+<!-- If logged -->
+<% if current_user %>
+  <% @user.reviews.each do |review| %>
+    <p><%= link_to review.movie.title, movie_path(review.movie) %></p>
+    <p><%= review.text %></p>
+    <p><%= review.rating_out_of_ten %>/10</p>
+    <small>- <%= review.user.full_name %> (<%= review.user.email %>) </small><br/>
+  
+  <% end %>
+
+<!-- Not logged -->
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
+
+<% end %>
