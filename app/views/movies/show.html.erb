@@ -8,8 +8,7 @@
 </h2>
 
 <% @movie.actors.each do |actor| %>
-  <%= link_to actor.firstname, actor_path(actor)  %>
-  <%= link_to actor.lastname, actor_path(actor) %>
+  <%= link_to actor.full_name, actor_path(actor)  %>
   <%= raw '<br>' unless actor == @movie.actors.last %>
 <% end %>
 
