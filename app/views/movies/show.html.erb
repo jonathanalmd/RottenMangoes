@@ -4,11 +4,14 @@
 <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
 
 <h2>
-	<%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)
+	<%= @movie.title %> (<%= @movie.review_average %>/10) (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)
 </h2>
 
-<!-- Average from movie.rb model -->
-<%= @movie.review_average %>/10
+<% @movie.actors.each do |actor| %>
+  <%= actor.firstname %>
+  <%= actor.lastname %>
+  <%= raw '<br>' unless actor == @movie.actors.last %>
+<% end %>
 
 <!-- Formated date from helper movies_helper.rb -->
 <h3>

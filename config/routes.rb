@@ -1,5 +1,13 @@
 
 RottenMangoes::Application.routes.draw do
+  get 'actors/show'
+
+  get 'actors/new'
+
+  get 'actors/create'
+
+  get 'actors/edit'
+
   # Nested resources: a review belongs to movie
   resources :movies do
     resources :reviews, only: [:new, :create]
@@ -13,6 +21,14 @@ end
 
 
 # Rails.application.routes.draw do
+  get 'actors/show'
+
+  get 'actors/new'
+
+  get 'actors/create'
+
+  get 'actors/edit'
+
   # get 'reviews/new'
 
   # get 'reviews/create'

@@ -13,10 +13,15 @@
 	<%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
 	<h2>
 	<%= link_to movie.title, movie_path(movie) %>
+	<!-- Average from movie.rb model -->
+	(<%= movie.review_average %>/10)
 	</h2>
 
-	<!-- Average from movie.rb model -->
-	<%= movie.review_average %>/10
+	<% movie.actors.each do |actor| %>
+		<%= actor.firstname %>
+	  <%= actor.lastname %>
+	  <%= raw '<br>' unless actor == movie.actors.last %>
+	<% end %>
 
 	<!-- Formated date from helper movies_helper.rb -->
 	<h3>

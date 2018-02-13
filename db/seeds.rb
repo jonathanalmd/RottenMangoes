@@ -179,19 +179,19 @@ contracts = Contract.create!(
       actor_id: Actor.find_by(firstname: 'Jony', lastname: 'Ddev').id
     },
     {
-      movie_id: Movie.find_by(title: 'Logan').id,
+      movie_id: Movie.find_by(title: 'The Wolverine').id,
       actor_id: Actor.find_by(firstname: 'Hugh', lastname: 'Jackman').id
     },
     {
-      movie_id: Movie.find_by(title: 'Logan').id,
+      movie_id: Movie.find_by(title: 'The Wolverine').id,
       actor_id: Actor.find_by(firstname: 'Hiroyuki', lastname: 'Sanada').id
     },
     {
-      movie_id: Movie.find_by(title: 'Logan').id,
+      movie_id: Movie.find_by(title: 'The Wolverine').id,
       actor_id: Actor.find_by(firstname: 'Will Yun', lastname: 'Lee').id
     },
     {
-      movie_id: Movie.find_by(title: 'Logan').id,
+      movie_id: Movie.find_by(title: 'The Wolverine').id,
       actor_id: Actor.find_by(firstname: 'Famke', lastname: 'Janssen').id
     }
   ]
