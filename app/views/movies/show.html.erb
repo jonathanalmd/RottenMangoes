@@ -1,7 +1,12 @@
 
 <%= link_to "Back to all movies", movies_path %><br/>
 
-<%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
+<% if @movie.poster_image_url != nil and @movie.poster_image_url != '' %>
+  <%= link_to image_tag(@movie.poster_image_url, :height => '50%', :width => '50%'), movie_path(@movie) %>
+<% else %>
+  <%= link_to image_tag(@movie.image, :height => '50%', :width => '50%'), movie_path(@movie) %>
+<% end %>
+
 
 <h2>
 	<%= @movie.title %> (<%= @movie.review_average %>/10) (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)

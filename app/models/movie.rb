@@ -1,7 +1,7 @@
 
 class Movie < ActiveRecord::Base
 # class Movie < ApplicationRecord
-  mount_uploader :poster_image_url, ImageUploader
+  mount_uploader :image, ImageUploader
 
   # access all reviews for a give movie
   has_many :reviews
@@ -41,5 +41,10 @@ class Movie < ActiveRecord::Base
       errors.add(:release_date, "should be in the past") if release_date > Date.today
     end 
   end
+
+  def movie_params
+    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :release_date, :poster_image_url, :image) 
+  end
+
 
 end

@@ -8,9 +8,15 @@
  -->
 <hr>
 
-
 <% @movies.each do |movie| %>
-	<%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+	
+	<% if movie.poster_image_url != nil and movie.poster_image_url != '' %>
+  	<%= link_to image_tag(movie.poster_image_url, :height => '50%', :width => '50%'), movie_path(movie) %>
+  <% else %>
+		<%= link_to image_tag(movie.image, :height => '50%', :width => '50%'), movie_path(movie) %>
+	<% end %>
+
+
 	<h2>
 	<%= link_to movie.title, movie_path(movie) %>
 	<!-- Average from movie.rb model -->
