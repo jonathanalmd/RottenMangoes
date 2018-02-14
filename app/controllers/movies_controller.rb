@@ -47,8 +47,12 @@ class MoviesController < ApplicationController
   end
 
   protected
-
+  # Strong params
+  # Whitelist attributes within the context in which they will be used, rather than requiring a global whitelisting within the model.
   def movie_params
+    # Required parameter movie
+    # Permit indentifies the list of allowed parameter keys
+    
     params.require(:movie).permit(:title, :release_date, :director, :runtime_in_minutes, :description, :poster_image_url, :image)
   end
 
