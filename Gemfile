@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.11'
 # gem 'bcrypt-ruby', :require => 'bcrypt'
 
+# Carrierwave for img uploader
+gem 'carrierwave', '~> 1.0'
+gem "rmagick"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

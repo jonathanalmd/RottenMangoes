@@ -1,6 +1,8 @@
 
 class Movie < ActiveRecord::Base
 # class Movie < ApplicationRecord
+  mount_uploader :poster_image_url, ImageUploader
+
   # access all reviews for a give movie
   has_many :reviews
 
@@ -19,8 +21,8 @@ class Movie < ActiveRecord::Base
   validates :description,
     presence: true
 
-  validates :poster_image_url,
-    presence: true
+  # validates :poster_image_url,
+  #   presence: true
 
   validates :release_date,
     presence: true

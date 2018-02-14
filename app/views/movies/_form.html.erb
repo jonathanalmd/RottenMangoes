@@ -34,12 +34,18 @@
     <%= f.label :runtime_in_minutes %><br>
     <%= f.number_field :runtime_in_minutes %>
   </div>
-
+<!-- 
   <div>
     <%= f.label :poster_image_url %><br>
     <%= f.text_field :poster_image_url %>
-  </div>
-
+  </div> -->
+  <p>
+    <%= f.file_field :poster_image_url %>
+  </p>
+  <!-- <p>
+    <%= f.label :poster_image_url, "or image URL" %><br />
+    <%= f.text_field :poster_image_url %>
+  </p> -->
   <div>
     <%= f.label :description %><br>
     <%= f.text_area :description %>
