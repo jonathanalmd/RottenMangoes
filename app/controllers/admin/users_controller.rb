@@ -13,11 +13,22 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      # Flash notice/alert: app/views/layouts/application.html.erb
+      redirect_to admin_users_path, notice: "#{@user.full_name} was updated successfully!"
+    else
+      render :index
+    end
+  end
+
   def update
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+      redirect_to admin_users_path
     else
       render :edit
     end
@@ -43,7 +54,7 @@ class Admin::UsersController < ApplicationController
     # Required parameter user
     # Permit indentifies the list of allowed parameter keys
 
-    params.require(:user).permit(:title, :release_date, :director, :runtime_in_minutes, :description, :poster_image_url, :image)
+    params.require(:user).permit(:email,:firstname, :lastname, :password, :password_confirmation, :admin)
   end
 end
 
