@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_action :auth_admin
+
   def index
     @users = User.all
   end
@@ -25,6 +27,13 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to admin_users_path
+  end
+
+  def auth_admin
+    if !user_is_admin?
+      flash[:error] = "You must log in as Admin to access this page, Mr. Not Admin Guy!"
+      redirect_to new_session_path
+    end
   end
 
   protected

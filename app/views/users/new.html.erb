@@ -46,7 +46,15 @@
     <%= f.password_field :password_confirmation %>
   </div>
   
-  <div><%= f.submit "Submit" %></div>
+
+  <% if current_user && current_user.admin %>
+    <div>
+      <%= f.label "Set as Admin" %> <br>
+      <%= f.check_box :admin %>
+    </div>
+  <% end %>
+  
+  <div><%= f.submit "Submit" %></div> 
 
 <% end %>
 

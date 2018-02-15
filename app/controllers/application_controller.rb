@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def user_is_admin?
+    current_user && current_user.admin
+  end
+
   # Will return the logget in user by checking the session[:user_id] value
   helper_method :current_user
   # -> now is possible to call current_user from controllers/views
