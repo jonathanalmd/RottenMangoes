@@ -1,5 +1,4 @@
 
-
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
@@ -52,7 +51,7 @@ class MoviesController < ApplicationController
   def movie_params
     # Required parameter movie
     # Permit indentifies the list of allowed parameter keys
-    
+
     params.require(:movie).permit(:title, :release_date, :director, :runtime_in_minutes, :description, :poster_image_url, :image)
   end
 
