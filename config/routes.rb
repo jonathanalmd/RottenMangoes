@@ -1,5 +1,17 @@
 
 RottenMangoes::Application.routes.draw do
+  # namespace :admin do
+  #   get 'users/show'
+  # end
+
+  # namespace :admin do
+  #   get 'users/edit'
+  # end
+
+  # namespace :admin do
+  #   get 'users/index'
+  # end
+
   # get 'users/show'
 
   # get 'actors/show'
@@ -19,5 +31,9 @@ RottenMangoes::Application.routes.draw do
   resources :actors
 
   root to: 'movies#index'
+  
+  namespace :admin do
+    resources :users, only: [:index, :edit, :show, :update, :destroy]
+  end
 
 end
