@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if current_user.admin
+    if current_user != nil && current_user.admin
       if @user.save
         redirect_to admin_users_path, notice: "User #{@user.firstname} created!"
       else

@@ -56,5 +56,11 @@ class Admin::UsersController < ApplicationController
 
     params.require(:user).permit(:email,:firstname, :lastname, :password, :password_confirmation, :admin)
   end
+
+
+  private
+
+
+
 end
 
