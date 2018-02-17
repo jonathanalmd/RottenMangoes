@@ -9,10 +9,11 @@ A Rotten Tomatoes clone using Ruby on Rails!
 * bundle install
 
 ## Database creation
+* rake db:create
 * rake db:migrate 
 
 ## Insert data from seed (using ActiveRecord) 
-1) edit 'db/seeds.rb' file
+1) edit 'db/seeds.rb' file (if you want, there are some examples to populate the database)
 2) Run:
 * bin/rails db:seed
 ## Check Database
@@ -38,3 +39,16 @@ A Rotten Tomatoes clone using Ruby on Rails!
 6) Access the awesome Rotten Mangoes website
 * localhost:3000/movies	
 7) Have fun!
+
+## Problems with rmagick (Mac)? Try this:
+* brew install pkg-config
+* brew install imagemagick
+* brew install imagemagick@6
+* brew link imagemagick@6 --force
+* gem install rmagick
+
+## Console not working? Try this:
+* spring stop
+
+## Problems to stop session? Try to clean:
+* session.clear
