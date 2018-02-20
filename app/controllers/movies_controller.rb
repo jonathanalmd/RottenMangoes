@@ -3,13 +3,16 @@ class MoviesController < ApplicationController
   include MoviesHelper
 
   def index
-    @movies = Movie.where(
-      "title LIKE ? AND director LIKE ? AND runtime_in_minutes BETWEEN ? AND ?",
-      query_title(params[:title]), 
-      query_director(params[:director]), 
-      query_range_runtime(params[:runtime_in_minutes])[0],
-      query_range_runtime(params[:runtime_in_minutes])[1]
-    )
+    if params[:runtime_in_minutes]
+      @movies = Movie.where(
+        "title LIKE ? AND director LIKE ? AND runtime_in_minutes BETWEEN ? AND ?",
+        query_title(params[:title]), 
+        query_director(params[:director]), 
+        query_range_runtime(params[:runtime_in_minutes])[0],
+        query_range_runtime(params[:runtime_in_minutes])[1]
+      )
+    end
+    @movies ||= Movie.all
   end
 
   def show
