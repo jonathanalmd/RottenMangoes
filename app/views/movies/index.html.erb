@@ -8,39 +8,22 @@
  -->
 <hr>
 
-<% @movies.each do |movie| %>
-	
-	<% if movie.poster_image_url != nil and movie.poster_image_url != '' %>
-  	<%= link_to image_tag(movie.poster_image_url, :height => '50%', :width => '50%'), movie_path(movie) %>
-  <% else %>
-		<%= link_to image_tag(movie.image, :height => '50%', :width => '50%'), movie_path(movie) %>
-	<% end %>
+<%= form_tag movies_path, method: "GET" do %>
+  <h4>Search by:</h4>
+  <%= label_tag(:title, "Title:") %> 
+  <%= text_field_tag :title, nil, placeholder: "Search by title" %>
+  <%= label_tag(:director, "Director:") %>
+  <%= text_field_tag :director, nil, placeholder: "Search by director" %>
 
+  <%= label_tag(:runtime_in_minutes, "Runtime") %>
+  <%= select_tag(:runtime_in_minutes, options_for_select(["Any", "Under 90 minutes", "Between 90 and 120 minutes", "Between 120 and 150 minutes", "Over 150 minutes"])) %>
 
-	<h2>
-	<%= link_to movie.title, movie_path(movie) %>
-	<!-- Average from movie.rb model -->
-	(<%= movie.review_average %>/10)
-	</h2>
-
-	<% movie.actors.each do |actor| %>
-		<%= link_to actor.full_name, actor_path(actor) %>
-	  <%= raw '<br>' unless actor == movie.actors.last %>
-	<% end %>
-
-	<!-- Formated date from helper movies_helper.rb -->
-	<h3>
-	<%= formatted_date(movie.release_date) %>
-	</h3>
-
-	<h4>
-	Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes
-	</h4>
-
-	<p>
-	<%= movie.description %>
-	</p>
-
-	<hr>
+  <%= submit_tag("Search") %>
 
 <% end %>
+
+<br>
+<hr>
+
+<%= render @movies %>
+
