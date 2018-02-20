@@ -29,6 +29,35 @@ class Movie < ActiveRecord::Base
 
   validate :release_date_is_in_the_past
 
+  # scope :movies_filter, -> (title, director, min_runtime, max_runtime) do
+  #   where("title LIKE ? AND director LIKE ? AND runtime_in_minutes BETWEEN ? AND ?",
+  #     "%#{title}%",
+  #     "%#{director}%",
+  #     min_runtime,
+  #     max_runtime
+  #   )
+  # end
+
+  scope :title_filter, -> (title) do
+    where("title LIKE ?",
+      "%#{title}%",
+    )
+  end
+
+  scope :director_filter, -> (director) do
+    where("director LIKE ?",
+      "%#{director}%",
+    )
+  end
+
+  scope :runtime_filter, -> (min_runtime, max_runtime) do
+    where("runtime_in_minutes BETWEEN ? AND ?",
+      min_runtime,
+      max_runtime
+    )
+  end
+
+
   # Can call this method from anywhere
   def review_average
     reviews.sum(:rating_out_of_ten)/(reviews.size == 0 ? 1 : reviews.size)

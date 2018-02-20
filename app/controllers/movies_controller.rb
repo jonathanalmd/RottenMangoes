@@ -4,13 +4,25 @@ class MoviesController < ApplicationController
 
   def index
     if params[:runtime_in_minutes]
-      @movies = Movie.where(
-        "title LIKE ? AND director LIKE ? AND runtime_in_minutes BETWEEN ? AND ?",
-        query_title(params[:title]), 
-        query_director(params[:director]), 
-        query_range_runtime(params[:runtime_in_minutes])[0],
-        query_range_runtime(params[:runtime_in_minutes])[1]
-      )
+      # v1
+      # @movies = Movie.where(
+      #   "title LIKE ? AND director LIKE ? AND runtime_in_minutes BETWEEN ? AND ?",
+      #   query_title(params[:title]), 
+      #   query_director(params[:director]), 
+      #   query_range_runtime(params[:runtime_in_minutes])[0],
+      #   query_range_runtime(params[:runtime_in_minutes])[1]
+      # )
+      # v2
+      # @movies = Movie.movies_filter(
+      #   query_title(params[:title]), 
+      #   query_director(params[:director]), 
+      #   query_range_runtime(params[:runtime_in_minutes])[0],
+      #   query_range_runtime(params[:runtime_in_minutes])[1]
+      # )
+      # v3
+      @movies = Movie.title_filter(query_title(params[:title])).
+                      director_filter(query_director(params[:director])).
+                      runtime_filter(query_range_runtime(params[:runtime_in_minutes])[0],query_range_runtime(params[:runtime_in_minutes])[1])
     end
     @movies ||= Movie.all
   end
