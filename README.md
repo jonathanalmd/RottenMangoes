@@ -50,5 +50,11 @@ A Rotten Tomatoes clone using Ruby on Rails!
 ## Console not working? Try this:
 * spring stop
 
-## Problems to stop session? Try to clean:
+## Problems to stop session? Try this:
 * session.clear
+
+## Problems to initialize server (address already in use)? Try this:
+* lsof -wni tcp:3000
+* kill -9 <PID>
+
+
