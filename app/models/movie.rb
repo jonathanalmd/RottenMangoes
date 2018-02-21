@@ -57,6 +57,12 @@ class Movie < ActiveRecord::Base
     )
   end
 
+  scope :title_or_director_filter, -> (title_director) do 
+    where("title LIKE ? OR director LIKE ?", 
+      "%#{title_director}%","%#{title_director}%"
+    )
+  end
+
 
   # Can call this method from anywhere
   def review_average
