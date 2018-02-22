@@ -26,14 +26,14 @@ RottenMangoes::Application.routes.draw do
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
-  
+
   resources :users, only: [:new, :create, :show]
-  resources :session, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :actors
 
   root to: 'movies#index'
-  
+
   namespace :admin do
     resources :users, only: [:index, :edit, :show, :update, :destroy]
   end
