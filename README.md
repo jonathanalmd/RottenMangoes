@@ -10,9 +10,9 @@ A Rotten Tomatoes clone using Ruby on Rails!
 
 ## Database creation
 * rake db:create
-* rake db:migrate 
+* rake db:migrate
 
-## Insert data from seed (using ActiveRecord) 
+## Insert data from seed (using ActiveRecord)
 1) edit 'db/seeds.rb' file (if you want, there are some examples to populate the database)
 2) Run:
 * bin/rails db:seed
@@ -24,20 +24,22 @@ A Rotten Tomatoes clone using Ruby on Rails!
 * bin/rails server -b 0.0.0.0
 
 ## Access the awesome Rotten Mangoes website!
-* localhost:3000/movies	
+* localhost:3000/movies
 
 ## Problems with bcrypt? Try this:
 1) Stop the server
+2)
 * gem install bcrypt --platform-ruby
-2) Check your bcrypt version:
+3) Check your bcrypt version:
 * gem list bcrypt
 3) Check bcrypt version in Gemfile (if different, update with the correct bcrypt version)
+5)
 * bundle install
-4) Check bcrypt in Gemfile.lock 
-5) Start the server
+4) Check bcrypt in Gemfile.lock
+5) Start the server:
 * bin/rails server -b 0.0.0.0
-6) Access the awesome Rotten Mangoes website
-* localhost:3000/movies	
+6) Access the awesome Rotten Mangoes website:
+* localhost:3000
 7) Have fun!
 
 ## Problems with rmagick (Mac)? Try this:
@@ -55,6 +57,4 @@ A Rotten Tomatoes clone using Ruby on Rails!
 
 ## Problems to initialize server (address already in use)? Try this:
 * lsof -wni tcp:3000
-* kill -9 <PID>
-
-
+* kill -9 [PID]
